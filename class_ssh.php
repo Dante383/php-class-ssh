@@ -19,7 +19,6 @@ class Ssh
 	
 	public function connect ($host = '127.0.0.1', $port = 22, $methods = null, $callbacks = null)
 	{
-		echo $host.':'.$port;
 		$this->sshHandler = ssh2_connect($host, $port, $methods, $callbacks);
 		if($this->sshHandler == false)
 			return false;
