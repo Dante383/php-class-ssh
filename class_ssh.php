@@ -120,6 +120,12 @@ class Ssh
 			return false;
 		return ssh2_methods_negotiated($this->sshHandler);
 	}
+	
+	public function disconnect ()
+	{
+		fclose($this->sshHandler);
+		$this->sshHandler = false;
+	}
 
 	public function getHandler ()
 	{
