@@ -125,6 +125,7 @@ class Ssh
 	{
 		fclose($this->sshHandler);
 		$this->sshHandler = false;
+		return true;
 	}
 
 	public function getHandler ()
