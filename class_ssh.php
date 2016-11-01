@@ -8,7 +8,7 @@ https://github.com/Dante383/php-class-ssh
 class Ssh 
 {
 	private $sshHandler = false;
-	
+
 	public function __construct ()
 	{
 		if (!function_exists('ssh2_connect'))
@@ -23,6 +23,11 @@ class Ssh
 		if($this->sshHandler == false)
 			return false;
 		return true;
+	}
+	
+	public function isConnected ()
+	{
+		return $this->sshHandler != false ? true : false;
 	}
 	
 	public function auth ($method, $data)
@@ -115,7 +120,7 @@ class Ssh
 			return false;
 		return ssh2_methods_negotiated($this->sshHandler);
 	}
-	
+
 	public function getHandler ()
 	{
 		return $this->sshHandler;
