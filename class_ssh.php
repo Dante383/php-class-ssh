@@ -132,6 +132,12 @@ class Ssh
 	{
 		return $this->sshHandler;
 	}
+	
+	public function __destruct ()
+	{
+		if ($this->sshHandler != false)
+			$this->disconnect();
+	}
 }
 
 ?>
